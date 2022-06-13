@@ -1,0 +1,75 @@
+================================================================================
+Booking without children
+================================================================================
+
+* Do. 09.06.2022
+
+--------------------------------------------------------------------------------
+
+(document
+  (booking_section
+    (booking_header
+      weekday: (weekday)
+      date: (date))))
+
+================================================================================
+Booking with children
+================================================================================
+
+* Do. 09.06.2022
+08:00 - 12:00 FOO
+12:30 - 16:30 BAR
+
+--------------------------------------------------------------------------------
+
+(document
+  (booking_section
+    (booking_header
+      weekday: (weekday)
+      date: (date))
+    (booking
+      booking_start: (time)
+      booking_end: (time)
+      booking_alias: (alias))
+    (booking
+      booking_start: (time)
+      booking_end: (time)
+      booking_alias: (alias))))
+
+================================================================================
+Bookings with comment
+================================================================================
+* Do. 09.06.2022
+08:00 - 12:00 FOO This is a comment!
+12:30 - 16:30 BAR
+
+--------------------------------------------------------------------------------
+
+(document
+  (booking_section
+    (booking_header
+      weekday: (weekday)
+      date: (date))
+    (booking
+      booking_start: (time)
+      booking_end: (time)
+      booking_alias: (alias)
+      booking_description: (description))
+    (booking
+      booking_start: (time)
+      booking_end: (time)
+      booking_alias: (alias))))
+
+================================================================================
+Booking with alternative date format
+================================================================================
+
+* Mi. 1.6.2022
+
+--------------------------------------------------------------------------------
+
+(document
+  (booking_section
+    (booking_header
+      weekday: (weekday)
+      date: (date))))

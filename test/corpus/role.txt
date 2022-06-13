@@ -1,0 +1,53 @@
+================================================================================
+Single Role
+================================================================================
+
+Vacation ABC-123 Have a good one!
+
+--------------------------------------------------------------------------------
+
+(document
+  (role
+    role_alias: (alias)
+    role_project: (project)
+    role_description: (description)))
+
+================================================================================
+Multiple Roles
+================================================================================
+
+Vacation ABC-123 Have a good one!
+Sick SICK-001 Get well soon!
+
+--------------------------------------------------------------------------------
+
+(document
+  (role
+    role_alias: (alias)
+    role_project: (project)
+    role_description: (description))
+  (role
+    role_alias: (alias)
+    role_project: (project)
+    role_description: (description)))
+
+================================================================================
+Multiple Roles with Comment
+================================================================================
+
+Vacation ABC-123 Have a good one!
+# Foo Bar This is not a role
+Sick SICK-001 Get well soon!
+
+--------------------------------------------------------------------------------
+
+(document
+  (role
+    role_alias: (alias)
+    role_project: (project)
+    role_description: (description))
+  (line_comment)
+  (role
+    role_alias: (alias)
+    role_project: (project)
+    role_description: (description)))

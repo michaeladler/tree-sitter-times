@@ -1,0 +1,176 @@
+[
+  {
+    "type": "booking",
+    "named": true,
+    "fields": {
+      "booking_alias": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alias",
+            "named": true
+          }
+        ]
+      },
+      "booking_description": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "description",
+            "named": true
+          }
+        ]
+      },
+      "booking_end": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "time",
+            "named": true
+          }
+        ]
+      },
+      "booking_start": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "time",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "booking_header",
+    "named": true,
+    "fields": {
+      "date": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "date",
+            "named": true
+          }
+        ]
+      },
+      "weekday": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "weekday",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "booking_section",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "booking",
+          "named": true
+        },
+        {
+          "type": "booking_header",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "document",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "booking_section",
+          "named": true
+        },
+        {
+          "type": "role",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "role",
+    "named": true,
+    "fields": {
+      "role_alias": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "alias",
+            "named": true
+          }
+        ]
+      },
+      "role_description": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "description",
+            "named": true
+          }
+        ]
+      },
+      "role_project": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "project",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "alias",
+    "named": true
+  },
+  {
+    "type": "date",
+    "named": true
+  },
+  {
+    "type": "description",
+    "named": true
+  },
+  {
+    "type": "project",
+    "named": true
+  },
+  {
+    "type": "time",
+    "named": true
+  },
+  {
+    "type": "weekday",
+    "named": true
+  }
+]

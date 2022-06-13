@@ -1,0 +1,36 @@
+{
+  "name": "tree-sitter-times",
+  "version": "0.0.1",
+  "description": "A grammer for ASCII timesheets",
+  "main": "bindings/node",
+   "scripts": {
+    "build": "tree-sitter generate",
+    "test": "tree-sitter test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaeladler/tree-sitter-times.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/michaeladler/tree-sitter-times/issues"
+  },
+  "homepage": "https://github.com/michaeladler/tree-sitter-times#readme",
+  "dependencies": {
+    "nan": "^2.16.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.6"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.times",
+      "highlights": "queries/times/highlights.scm",
+      "injection-regex": "times",
+      "file-types": [
+        "times"
+      ]
+    }
+  ]
+}

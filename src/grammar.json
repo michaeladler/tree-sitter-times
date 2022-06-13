@@ -1,0 +1,233 @@
+{
+  "name": "times",
+  "rules": {
+    "document": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "role"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "booking_section"
+          }
+        ]
+      }
+    },
+    "role": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "role_alias",
+          "content": {
+            "type": "SYMBOL",
+            "name": "alias"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "role_project",
+          "content": {
+            "type": "SYMBOL",
+            "name": "project"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_ws1"
+        },
+        {
+          "type": "FIELD",
+          "name": "role_description",
+          "content": {
+            "type": "SYMBOL",
+            "name": "description"
+          }
+        }
+      ]
+    },
+    "alias": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z][a-zA-Z0-9]*"
+    },
+    "project": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z][a-zA-Z0-9_-]*"
+    },
+    "description": {
+      "type": "PATTERN",
+      "value": "[^\\n]+"
+    },
+    "booking_section": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "booking_header"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "booking"
+          }
+        }
+      ]
+    },
+    "booking_header": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\\*"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[ ]"
+        },
+        {
+          "type": "FIELD",
+          "name": "weekday",
+          "content": {
+            "type": "SYMBOL",
+            "name": "weekday"
+          }
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\."
+        },
+        {
+          "type": "PATTERN",
+          "value": "[ ]"
+        },
+        {
+          "type": "FIELD",
+          "name": "date",
+          "content": {
+            "type": "SYMBOL",
+            "name": "date"
+          }
+        }
+      ]
+    },
+    "weekday": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z]+"
+    },
+    "date": {
+      "type": "PATTERN",
+      "value": "[0-9\\/\\.-]+"
+    },
+    "booking": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "booking_start",
+          "content": {
+            "type": "SYMBOL",
+            "name": "time"
+          }
+        },
+        {
+          "type": "PATTERN",
+          "value": "[ ]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[-]"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[ ]"
+        },
+        {
+          "type": "FIELD",
+          "name": "booking_end",
+          "content": {
+            "type": "SYMBOL",
+            "name": "time"
+          }
+        },
+        {
+          "type": "PATTERN",
+          "value": "[ ]"
+        },
+        {
+          "type": "FIELD",
+          "name": "booking_alias",
+          "content": {
+            "type": "SYMBOL",
+            "name": "alias"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "PATTERN",
+                  "value": "[ ]"
+                },
+                {
+                  "type": "FIELD",
+                  "name": "booking_description",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "description"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "time": {
+      "type": "PATTERN",
+      "value": "[0-9]{1,2}:[0-9]{1,2}"
+    },
+    "line_comment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "PATTERN",
+          "value": ".*"
+        }
+      ]
+    },
+    "_ws1": {
+      "type": "PATTERN",
+      "value": "\\s+"
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "line_comment"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [],
+  "inline": ["line_comment"],
+  "supertypes": []
+}

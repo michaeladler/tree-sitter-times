@@ -52,11 +52,11 @@
     },
     "alias": {
       "type": "PATTERN",
-      "value": "[a-zA-Z][a-zA-Z0-9]*"
+      "value": "[a-zA-Z0-9]+"
     },
     "project": {
       "type": "PATTERN",
-      "value": "[a-zA-Z][a-zA-Z0-9_-]*"
+      "value": "[a-zA-Z0-9][a-zA-Z0-9_-]*"
     },
     "description": {
       "type": "PATTERN",

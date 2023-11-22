@@ -22,9 +22,9 @@ module.exports = grammar({
         field("role_description", $.description)
       ),
 
-    alias: ($) => /[a-zA-Z][a-zA-Z0-9]*/,
+    alias: ($) => /[a-zA-Z0-9]+/,
 
-    project: ($) => /[a-zA-Z][a-zA-Z0-9_-]*/,
+    project: ($) => /[a-zA-Z0-9][a-zA-Z0-9_-]*/,
 
     description: ($) => /[^\n]+/,
 

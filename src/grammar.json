@@ -171,19 +171,28 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "SEQ",
+              "type": "CHOICE",
               "members": [
                 {
-                  "type": "PATTERN",
-                  "value": "[ ]"
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "PATTERN",
+                      "value": "[ ]"
+                    },
+                    {
+                      "type": "FIELD",
+                      "name": "booking_description",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "description"
+                      }
+                    }
+                  ]
                 },
                 {
-                  "type": "FIELD",
-                  "name": "booking_description",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "description"
-                  }
+                  "type": "SYMBOL",
+                  "name": "_ws1"
                 }
               ]
             },
@@ -191,6 +200,10 @@
               "type": "BLANK"
             }
           ]
+        },
+        {
+          "type": "PATTERN",
+          "value": "\\n"
         }
       ]
     },

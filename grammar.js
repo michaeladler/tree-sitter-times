@@ -2,6 +2,7 @@ const STAR = /\*/;
 const SPACE = /[ ]/;
 const MINUS = /[-]/;
 const DOT = /\./;
+const NEWLINE = /\n/;
 
 module.exports = grammar({
   name: "times",
@@ -53,7 +54,13 @@ module.exports = grammar({
         field("booking_end", $.time),
         SPACE,
         field("booking_alias", $.alias),
-        optional(seq(SPACE, field("booking_description", $.description)))
+        optional(
+          choice(
+            seq(SPACE, field("booking_description", $.description)),
+            $._ws1,
+          )
+        ),
+        NEWLINE,
       ),
 
     time: ($) => /[0-9]{1,2}:[0-9]{1,2}/,

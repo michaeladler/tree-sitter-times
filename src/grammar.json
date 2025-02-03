@@ -245,5 +245,6 @@
   "inline": [
     "line_comment"
   ],
-  "supertypes": []
+  "supertypes": [],
+  "reserved": {}
 }

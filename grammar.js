@@ -20,7 +20,7 @@ module.exports = grammar({
         field("role_alias", $.alias),
         field("role_project", $.project),
         $._ws1,
-        field("role_description", $.description)
+        field("role_description", $.description),
       ),
 
     alias: ($) => /[a-zA-Z0-9]+/,
@@ -38,7 +38,7 @@ module.exports = grammar({
         field("weekday", $.weekday),
         DOT,
         SPACE,
-        field("date", $.date)
+        field("date", $.date),
       ),
 
     weekday: ($) => /[a-zA-Z]+/,
@@ -58,7 +58,7 @@ module.exports = grammar({
           choice(
             seq(SPACE, field("booking_description", $.description)),
             $._ws1,
-          )
+          ),
         ),
         NEWLINE,
       ),

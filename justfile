@@ -1,11 +1,7 @@
+default: generate test
 
-default: build format test
-
-build:
-    tree-sitter generate
-
-format:
-    prettier -w src/grammar.json
+generate:
+    tree-sitter generate --abi=14
 
 test:
     tree-sitter test

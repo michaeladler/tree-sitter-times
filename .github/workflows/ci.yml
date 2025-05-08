@@ -6,9 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: extractions/setup-just@v2
-    - uses: tree-sitter/setup-action@v1
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+    - uses: extractions/setup-just@dd310ad5a97d8e7b41793f8ef055398d51ad4de6 # v2
+    - uses: tree-sitter/setup-action@82b255ba7408ae2a2ec3f3a697ec211bff912f2a # v1
       with:
         install-lib: false
     - run: just

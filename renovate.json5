@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":semanticCommits",
+    ":semanticCommitTypeAll(chore)",
+    ":prHourlyLimitNone",
+    ":prConcurrentLimitNone",
+    "schedule:monthly",
+  ],
+  packageRules: [
+    {
+      "description": "Automerge non-major updates",
+      "matchCategories": ["rust", "js"],
+      matchUpdateTypes: [ 'patch', 'minor' ],
+      groupName: 'minor-patch',
+      automerge: true,
+    },
+    {
+      "matchCategories": ["ci"],
+      "automerge": true,
+      "groupName": "ci",
+      "automerge": true,
+    }
+  ],
+}

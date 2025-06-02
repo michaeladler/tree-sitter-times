@@ -13,9 +13,9 @@ dependencies = [
 
 [[package]]
 name = "cc"
-version = "1.2.21"
+version = "1.2.25"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "8691782945451c1c383942c4874dbe63814f61cb57ef773cda2972682b7bb3c0"
+checksum = "d0fc897dc1e865cc67c0e05a836d9d3f1df3cbe442aa4a9473b18e12624a4951"
 dependencies = [
  "shlex",
 ]
@@ -165,9 +165,9 @@ dependencies = [
 
 [[package]]
 name = "tree-sitter"
-version = "0.25.3"
+version = "0.25.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "b9ac5ea5e7f2f1700842ec071401010b9c59bf735295f6e9fa079c3dc035b167"
+checksum = "ac5fff5c47490dfdf473b5228039bfacad9d765d9b6939d26bf7cc064c1c7822"
 dependencies = [
  "cc",
  "regex",

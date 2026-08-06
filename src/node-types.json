@@ -126,7 +126,7 @@
       },
       "role_description": {
         "multiple": false,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "description",

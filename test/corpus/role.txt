@@ -79,3 +79,57 @@ Sick SICK-001 Get well soon!
     role_alias: (alias)
     role_project: (project)
     role_description: (description)))
+
+================================================================================
+Role without description does not swallow next line
+================================================================================
+
+Vacation ABC-123
+Sick SICK-001 Get well soon!
+
+--------------------------------------------------------------------------------
+
+(document
+  (role
+    role_alias: (alias)
+    role_project: (project))
+  (role
+    role_alias: (alias)
+    role_project: (project)
+    role_description: (description)))
+
+================================================================================
+Role without description does not swallow indented next line
+================================================================================
+
+Vacation ABC-123
+  Sick SICK-001 Get well soon!
+
+--------------------------------------------------------------------------------
+
+(document
+  (role
+    role_alias: (alias)
+    role_project: (project))
+  (role
+    role_alias: (alias)
+    role_project: (project)
+    role_description: (description)))
+
+================================================================================
+Role with trailing whitespace does not swallow next line
+================================================================================
+
+Vacation ABC-123 
+Sick SICK-001 Get well soon!
+
+--------------------------------------------------------------------------------
+
+(document
+  (role
+    role_alias: (alias)
+    role_project: (project))
+  (role
+    role_alias: (alias)
+    role_project: (project)
+    role_description: (description)))

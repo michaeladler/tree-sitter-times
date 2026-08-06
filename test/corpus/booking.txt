@@ -122,3 +122,28 @@ Booking alias with dash and underscore
       booking_start: (time)
       booking_end: (time)
       booking_alias: (alias))))
+
+================================================================================
+Booking with trailing whitespace does not swallow next line
+================================================================================
+
+* Do. 09.06.2022
+08:00 - 12:00 FOO 
+  12:30 - 16:30 BAR Meeting
+
+--------------------------------------------------------------------------------
+
+(document
+  (booking_section
+    (booking_header
+      weekday: (weekday)
+      date: (date))
+    (booking
+      booking_start: (time)
+      booking_end: (time)
+      booking_alias: (alias))
+    (booking
+      booking_start: (time)
+      booking_end: (time)
+      booking_alias: (alias)
+      booking_description: (description))))

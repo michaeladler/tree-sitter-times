@@ -19,15 +19,18 @@ module.exports = grammar({
       seq(
         field("role_alias", $.alias),
         field("role_project", $.project),
-        $._ws1,
-        field("role_description", $.description),
+        optional(
+          seq($._ws1, optional(field("role_description", $.description))),
+        ),
       ),
 
     alias: ($) => /[a-zA-Z0-9_-]+/,
 
     project: ($) => /[a-zA-Z0-9][a-zA-Z0-9_-]*/,
 
-    description: ($) => /[^\n]+/,
+    // Always immediate: a description may only follow `_ws1` on the same line,
+    // never across a line break (`extras` would otherwise skip the newline).
+    description: ($) => token.immediate(/[^\n]+/),
 
     booking_section: ($) => seq($.booking_header, repeat($.booking)),
 
@@ -55,10 +58,7 @@ module.exports = grammar({
         SPACE,
         field("booking_alias", $.alias),
         optional(
-          choice(
-            seq(SPACE, field("booking_description", $.description)),
-            $._ws1,
-          ),
+          seq($._ws1, optional(field("booking_description", $.description))),
         ),
         NEWLINE,
       ),
@@ -67,6 +67,8 @@ module.exports = grammar({
 
     line_comment: ($) => seq("#", /[^\n]*/),
 
-    _ws1: ($) => /\s+/,
+    // Horizontal whitespace that must directly follow the previous token, so it
+    // can never be satisfied by whitespace on a following line.
+    _ws1: ($) => token.immediate(/[ \t]+/),
   },
 });

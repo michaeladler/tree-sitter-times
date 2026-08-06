@@ -38,16 +38,37 @@
           }
         },
         {
-          "type": "SYMBOL",
-          "name": "_ws1"
-        },
-        {
-          "type": "FIELD",
-          "name": "role_description",
-          "content": {
-            "type": "SYMBOL",
-            "name": "description"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "_ws1"
+                },
+                {
+                  "type": "CHOICE",
+                  "members": [
+                    {
+                      "type": "FIELD",
+                      "name": "role_description",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "description"
+                      }
+                    },
+                    {
+                      "type": "BLANK"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -60,8 +81,11 @@
       "value": "[a-zA-Z0-9][a-zA-Z0-9_-]*"
     },
     "description": {
-      "type": "PATTERN",
-      "value": "[^\\n]+"
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^\\n]+"
+      }
     },
     "booking_section": {
       "type": "SEQ",
@@ -171,15 +195,15 @@
           "type": "CHOICE",
           "members": [
             {
-              "type": "CHOICE",
+              "type": "SEQ",
               "members": [
                 {
-                  "type": "SEQ",
+                  "type": "SYMBOL",
+                  "name": "_ws1"
+                },
+                {
+                  "type": "CHOICE",
                   "members": [
-                    {
-                      "type": "PATTERN",
-                      "value": "[ ]"
-                    },
                     {
                       "type": "FIELD",
                       "name": "booking_description",
@@ -187,12 +211,11 @@
                         "type": "SYMBOL",
                         "name": "description"
                       }
+                    },
+                    {
+                      "type": "BLANK"
                     }
                   ]
-                },
-                {
-                  "type": "SYMBOL",
-                  "name": "_ws1"
                 }
               ]
             },
@@ -225,8 +248,11 @@
       ]
     },
     "_ws1": {
-      "type": "PATTERN",
-      "value": "\\s+"
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[ \\t]+"
+      }
     }
   },
   "extras": [

@@ -97,3 +97,28 @@ Booking with whitespace
       booking_start: (time)
       booking_end: (time)
       booking_alias: (alias))))
+
+================================================================================
+Booking alias with dash and underscore
+================================================================================
+
+* Do. 09.06.2022
+08:00 - 12:00 FOO-BAR Meeting
+12:30 - 16:30 B_TASK
+
+--------------------------------------------------------------------------------
+
+(document
+  (booking_section
+    (booking_header
+      weekday: (weekday)
+      date: (date))
+    (booking
+      booking_start: (time)
+      booking_end: (time)
+      booking_alias: (alias)
+      booking_description: (description))
+    (booking
+      booking_start: (time)
+      booking_end: (time)
+      booking_alias: (alias))))

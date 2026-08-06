@@ -53,7 +53,7 @@
     },
     "alias": {
       "type": "PATTERN",
-      "value": "[a-zA-Z0-9]+"
+      "value": "[a-zA-Z0-9_-]+"
     },
     "project": {
       "type": "PATTERN",
@@ -220,7 +220,7 @@
         },
         {
           "type": "PATTERN",
-          "value": ".*"
+          "value": "[^\\n]*"
         }
       ]
     },

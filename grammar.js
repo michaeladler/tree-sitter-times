@@ -23,7 +23,7 @@ module.exports = grammar({
         field("role_description", $.description),
       ),
 
-    alias: ($) => /[a-zA-Z0-9]+/,
+    alias: ($) => /[a-zA-Z0-9_-]+/,
 
     project: ($) => /[a-zA-Z0-9][a-zA-Z0-9_-]*/,
 
@@ -65,7 +65,7 @@ module.exports = grammar({
 
     time: ($) => /[0-9]{1,2}:[0-9]{1,2}/,
 
-    line_comment: ($) => seq("#", /.*/),
+    line_comment: ($) => seq("#", /[^\n]*/),
 
     _ws1: ($) => /\s+/,
   },
